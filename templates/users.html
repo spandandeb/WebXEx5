@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4285f4;
+        }
+        .user-card {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        
+        <div class="user-card">
+            <h2>Hello, {{ user_info.name }}!</h2>
+            
+            <!-- Using Jinja2 conditional -->
+            {% if user_info.role == "Admin" %}
+                <p>You have administrator privileges.</p>
+            {% elif user_info.role == "User" %}
+                <p>You have standard user access.</p>
+            {% else %}
+                <p>You are browsing as a {{ user_info.role }}.</p>
+            {% endif %}
+        </div>
+        
+        <p><a href="{{ url_for('home') }}">← Back to Home</a></p>
+    </div>
+</body>
+</html>
